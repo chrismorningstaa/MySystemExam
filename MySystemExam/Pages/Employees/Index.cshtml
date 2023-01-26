@@ -1,0 +1,39 @@
+﻿@page
+@model MySystemExam.Pages.Employees.IndexModel
+@{
+}
+<br>
+<h2>List Of Employees</h2>
+<a class='btn btn-primary btn-sm' href='/Employees/Create'>New Employee</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Gender</th>
+            <th>Birthday</th>
+            <th>Position</th>
+            <th>Created At</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var list in Model.listEmployees)
+            {                                           
+             <tr>
+                 <td>@list.id</td>
+                 <td>@list.firstname</td>
+                 <td>@list.lastname</td>
+                 <td>@list.gender</td>
+                 <td>@list.birthday</td>
+                 <td>@list.position</td>
+                 <td>@list.created_at</td>
+                <td>
+                     <a class="btn btn-primary btn-sm" href="/Employees/Edit?id=@list.id">Edit</a>
+                     <a class="btn btn-danger btn-sm" href="/Employees/Deletes?id=@list.id">Delete</a>
+                </td>
+             </tr>
+            }
+    </tbody>
+</table>
